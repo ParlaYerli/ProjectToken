@@ -1,0 +1,1 @@
+﻿Scaffold-DbContext "Server=(localdb)\mssqllocaldb; Database=ProjectTokenDB; Trusted_Connection=true" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Domain
