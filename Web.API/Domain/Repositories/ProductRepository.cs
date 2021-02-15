@@ -15,7 +15,6 @@ namespace Web.API.Domain.Repositories
         {
             await _context.Products.AddAsync(product);
         }
-
         public async Task<Product> FindByIdAsync(int productId)
         {
             return await _context.Products.FindAsync(productId);
@@ -24,13 +23,11 @@ namespace Web.API.Domain.Repositories
         {
             return await _context.Products.ToListAsync();
         }
-
         public async Task RemoveProductAsync(int productId)
         {
             var product = await FindByIdAsync(productId);
              _context.Products.Remove(product);
         }
-
         public void UpdateProduct(Product product)
         {
             _context.Products.Update(product);
