@@ -7,12 +7,12 @@ using Web.API.Domain.Model;
 
 namespace Web.API.Domain.Entities
 {
-    public partial class ProjectTokenDBContext : DbContext
+    public partial class TokenContext : DbContext
     {
-        public ProjectTokenDBContext()
+        public TokenContext()
         {
         }
-        public ProjectTokenDBContext(DbContextOptions<ProjectTokenDBContext> options)
+        public TokenContext(DbContextOptions<TokenContext> options)
             : base(options)
         {
         }

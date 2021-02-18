@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Web.API.Domain.Model
 {
-    public partial class User
+    public class User
     {
         public int Id { get; set; }
         public string Email { get; set; }

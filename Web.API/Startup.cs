@@ -30,7 +30,7 @@ namespace Web.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<ProjectTokenDBContext>(opt=>
+            services.AddDbContext<TokenContext>(opt=>
             {
                 opt.UseSqlServer(Configuration["ConnectionStrings:DefaultConnectionString"]);
             });

@@ -10,7 +10,7 @@ namespace Web.API.Domain.Repositories
 {
     public class ProductRepository : BaseRepository, IProductRepository
     {
-        public ProductRepository(ProjectTokenDBContext _context) : base(_context) { }
+        public ProductRepository(TokenContext _context) : base(_context) { }
         public async Task AddProductAsync(Product product)
         {
             await _context.Products.AddAsync(product);

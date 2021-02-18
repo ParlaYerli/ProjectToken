@@ -30,7 +30,7 @@ namespace Web.API.Controllers
             ProductListResponse productListResponse = await _service.ListAsync();
             if (productListResponse.Success)
             {
-                return Ok(productListResponse.productList);
+                return Ok(productListResponse.ProductList);
             }
             else
             {

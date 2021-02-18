@@ -8,9 +8,9 @@ namespace Web.API.Domain.UnitOfWork
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly ProjectTokenDBContext _context;
+        private readonly TokenContext _context;
 
-        public UnitOfWork(ProjectTokenDBContext context)
+        public UnitOfWork(TokenContext context)
         {
             _context = context;
         }
