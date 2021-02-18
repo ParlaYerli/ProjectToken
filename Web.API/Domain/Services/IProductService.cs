@@ -12,7 +12,7 @@ namespace Web.API.Domain.Services
         Task<ProductListResponse> ListAsync();
         Task<ProductResponse> AddProduct(Product product);
         Task<ProductResponse> RemoveProduct(int productId);
-        Task<ProductResponse> UpdateResponse(Product product, int productId);
+        Task<ProductResponse> UpdateProduct(Product product, int productId);
         Task<ProductResponse> FindByIdAsync(int productId);
     }
 }
