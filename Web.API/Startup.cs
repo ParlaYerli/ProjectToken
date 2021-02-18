@@ -11,6 +11,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Web.API.Domain.Entities;
+using Web.API.Domain.Repositories;
+using Web.API.Domain.Services;
+using Web.API.Domain.UnitOfWork;
 
 namespace Web.API
 {
@@ -30,8 +33,18 @@ namespace Web.API
             services.AddDbContext<ProjectTokenDBContext>(opt=>
             {
                 opt.UseSqlServer(Configuration["ConnectionStrings:DefaultConnectionString"]);
-
-
+            });
+            services.AddTransient<IProductService, ProductService>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddCors(opt =>
+            {
+                opt.AddDefaultPolicy(builder=>
+                {
+                    builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+                });
+           
             });
         }
 
@@ -42,11 +55,9 @@ namespace Web.API
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseCors();
             app.UseRouting();
-
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
