@@ -74,7 +74,8 @@ namespace Web.API.Controllers
             }
         }
 
-        [HttpPut("{id:int}")]
+        [HttpPut("{id:int}")
+            ]
         public async Task<IActionResult> UpdateProduct(ProductResource productResource, int id)
         {
             if (!ModelState.IsValid)
