@@ -49,7 +49,7 @@ namespace Web.API
                 });
            
             });
-
+            services.Configure<TokenOptions>(Configuration.GetSection("TokenOptions"));
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(jwt=>
@@ -59,6 +59,8 @@ namespace Web.API
                     ValidateAudience = true,
                     ValidateIssuer=true,
                     ValidateLifetime=true,
+                    ValidateIssuerSigningKey=true,
+                    IssuerSigningKey=SignHandler.GetSecurityKey(tokenOptions.SecurityKey),
                     ValidIssuer= tokenOptions.Issuer,
                     ValidAudience=tokenOptions.Audience
                 };
