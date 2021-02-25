@@ -15,6 +15,11 @@ namespace Web.API.Domain.UnitOfWork
             _context = context;
         }
 
+        public void Complete()
+        {
+            _context.SaveChanges();
+        }
+
         public async Task CompleteAsync()
         {
             await _context.SaveChangesAsync();
