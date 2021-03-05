@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Web.API.Domain.Model;
 using Web.API.Domain.Responses;
 
-namespace Web.API.Domain.Services
+namespace Web.API.Domain.Services.Abstract
 {
     public interface IUserService
     {

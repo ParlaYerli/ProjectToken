@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 using Web.API.Domain.Model;
 using Web.API.Domain.Repositories;
 using Web.API.Domain.Responses;
+using Web.API.Domain.Services.Abstract;
 using Web.API.Domain.UnitOfWork;
 
-namespace Web.API.Domain.Services
+namespace Web.API.Domain.Services.Concrete
 {
     public class UserService : IUserService
     {
@@ -96,6 +97,7 @@ namespace Web.API.Domain.Services
             try
             {
                 _repository.RemoveRefreshToken(user);
+                _unitOfWork.Complete();
             }
 
             catch (Exception)

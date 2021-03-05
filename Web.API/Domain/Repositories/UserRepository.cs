@@ -40,6 +40,7 @@ namespace Web.API.Domain.Repositories
         {
             User newUser = this.FindById(user.Id);
             newUser.RefreshToken = null;
+            newUser.RefreshTokenEndDate = null;
         }
 
         public void SaveRefreshToken(int userId, string refreshToken)

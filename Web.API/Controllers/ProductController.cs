@@ -10,6 +10,7 @@ using Web.API.Domain.Services;
 using Web.API.Resources;
 using Web.API.Extensions;
 using Web.API.Domain.Model;
+using Web.API.Domain.Services.Abstract;
 
 namespace Web.API.Controllers
 {
